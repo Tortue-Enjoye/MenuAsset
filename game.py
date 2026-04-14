@@ -1,6 +1,9 @@
 import pygame
 import ctypes
 
+from menu import Menu
+
+
 REF_W, REF_H = 1536, 864
 
 
@@ -20,26 +23,20 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
 
+        self.menu = Menu(self.screen,self.clock)
+
     def run(self):
+        current = "menu"
+
         while self.running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+            if current == "menu":
+                result = self.menu.run()
+
+                if result == False:
                     self.running = False
 
-            self.update()
 
         pygame.quit()
 
-    def update(self):
-        self.screen.fill((0, 0, 0))
-        pygame.display.flip()
 
-    # Permet d'obtenir les ratios de taille du screen
-    def get_scale(self):
-        w, h = self.screen.get_size()
-        return w / REF_W, h / REF_H
 
-    # Retourne les valeurs pour placer / resize des éléments
-    def scale(self, x, y, w, h):
-        sx, sy = self.get_scale()
-        return int(x * sx), int(y * sy), int(w * sx), int(h * sy)
