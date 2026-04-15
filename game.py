@@ -3,6 +3,7 @@ import ctypes
 
 from menu import Menu
 from page1 import Page1
+from page2 import Page2
 
 
 REF_W, REF_H = 1536, 864
@@ -38,6 +39,8 @@ class Game:
 
                 elif result == "page1":
                     result = Page1(self.screen, self.clock).run()
+                elif result == "page2":
+                    result = Page2(self.screen, self.clock).run()
 
 
         pygame.quit()

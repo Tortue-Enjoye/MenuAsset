@@ -32,6 +32,8 @@ class Menu:
                         return False
                     if self.rect_buton1.collidepoint(event.pos):
                         return "page1"
+                    if self.rect_buton2.collidepoint(event.pos):
+                        return "page2"
 
             self.draw(mouse_pos)
 
