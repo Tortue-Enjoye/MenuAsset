@@ -1,5 +1,3 @@
-import pygame
-
 from utils import *
 
 REF_W, REF_H = 1536, 864
@@ -32,6 +30,8 @@ class Menu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.rect_buton3.collidepoint(event.pos):
                         return False
+                    if self.rect_buton1.collidepoint(event.pos):
+                        return "page1"
 
             self.draw(mouse_pos)
 

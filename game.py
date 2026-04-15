@@ -2,6 +2,7 @@ import pygame
 import ctypes
 
 from menu import Menu
+from page1 import Page1
 
 
 REF_W, REF_H = 1536, 864
@@ -34,6 +35,9 @@ class Game:
 
                 if result == False:
                     self.running = False
+
+                elif result == "page1":
+                    result = Page1(self.screen, self.clock).run()
 
 
         pygame.quit()
